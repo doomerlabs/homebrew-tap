@@ -1,30 +1,30 @@
 class DoomerBeta < Formula
   desc "Run source-code adversaries against a local repository"
   homepage "https://github.com/doomerlabs/doomer"
-  version "2026.9.20-beta.5"
+  version "2026.9.23-beta.1"
   # No license stanza: upstream has not selected a license. See LICENSE.
 
   on_macos do
     on_intel do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.20-beta.5/doomer_2026.9.20-beta.5_darwin_amd64.tar.gz"
-      sha256 "76f9f718f58f49f23a5e48aa9b814ad1a45570e0a00729258d61759ab4017318"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.23-beta.1/doomer_2026.9.23-beta.1_darwin_amd64.tar.gz"
+      sha256 "e0cf688a432b8d2707f4d0d240f99ff3d450766168e7f7ca4e366469ef008f9c"
     end
 
     on_arm do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.20-beta.5/doomer_2026.9.20-beta.5_darwin_arm64.tar.gz"
-      sha256 "24483e78824cce1d3765f01f8a89f3e188a94c6941ce29f0a64f00c88966a446"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.23-beta.1/doomer_2026.9.23-beta.1_darwin_arm64.tar.gz"
+      sha256 "995a72f40f07ab0bcca6c0d16f6ea631cf9f051a4ba6491eb657fc6c688a347c"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.20-beta.5/doomer_2026.9.20-beta.5_linux_amd64.tar.gz"
-      sha256 "93add2bb92218a3001555fc69621c051715b21378f1b9912c3287232d7e21342"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.23-beta.1/doomer_2026.9.23-beta.1_linux_amd64.tar.gz"
+      sha256 "3535ee11ca6e6e14282b378af06b75e28c0037f42aa468dd013362e80451cfbb"
     end
 
     on_arm do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.20-beta.5/doomer_2026.9.20-beta.5_linux_arm64.tar.gz"
-      sha256 "0d3fa34c6989d9143c5817a89198ffa7deb33eed0dfb5deb4ff11b79a93a57ec"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.23-beta.1/doomer_2026.9.23-beta.1_linux_arm64.tar.gz"
+      sha256 "4f9fde3b39979bca4175ff74ae90c5b70e91f12fb410fc32d616c90749d15124"
     end
   end
 
