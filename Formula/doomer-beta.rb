@@ -2,7 +2,7 @@ class DoomerBeta < Formula
   desc "Run source-code adversaries against a local repository"
   homepage "https://github.com/doomerlabs/doomer"
   version "2026.9.23-beta.1"
-  # No license stanza: upstream has not selected a license. See LICENSE.
+  license "Apache-2.0"
 
   on_macos do
     on_intel do
