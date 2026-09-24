@@ -1,30 +1,30 @@
 class DoomerBeta < Formula
   desc "Run source-code adversaries against a local repository"
   homepage "https://github.com/doomerlabs/doomer"
-  version "2026.9.25-beta.1"
+  version "2026.9.25-beta.2"
   license "Apache-2.0"
 
   on_macos do
     on_intel do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.25-beta.1/doomer_2026.9.25-beta.1_darwin_amd64.tar.gz"
-      sha256 "8fb1333e13180bb66362552f34a3c026b2ec90fd442efeaf0346bab5a694085d"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.25-beta.2/doomer_2026.9.25-beta.2_darwin_amd64.tar.gz"
+      sha256 "c040c2d7b9686752d965c19f6268afdb578ed232fa67eeb9a2b895a58a1b065d"
     end
 
     on_arm do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.25-beta.1/doomer_2026.9.25-beta.1_darwin_arm64.tar.gz"
-      sha256 "286db772125a73350d8d760abe9554988b2596128f2688dfd8be9b2e714d363c"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.25-beta.2/doomer_2026.9.25-beta.2_darwin_arm64.tar.gz"
+      sha256 "f0a1750fd010e23fd1908c7770f2de8fca418537a9a45c7bce8df93ed1b688c8"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.25-beta.1/doomer_2026.9.25-beta.1_linux_amd64.tar.gz"
-      sha256 "7342b5d5ca0edf8a7f9d447b7f230c3159309237c39e8a96b61f1aca8a16c95e"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.25-beta.2/doomer_2026.9.25-beta.2_linux_amd64.tar.gz"
+      sha256 "b97477c70f45832161d6f3ee4bae74b627953f41cf63ccd46576aa822deb9290"
     end
 
     on_arm do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.25-beta.1/doomer_2026.9.25-beta.1_linux_arm64.tar.gz"
-      sha256 "68308336431bfe539fc8f8e45137d0586330f26c521712ba315b9ce92f840455"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.25-beta.2/doomer_2026.9.25-beta.2_linux_arm64.tar.gz"
+      sha256 "6d4871dde28e8c821f7f0b0afca666faa3d91a4c713c938abae4a652b8b98d34"
     end
   end
 
