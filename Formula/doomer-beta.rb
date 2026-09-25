@@ -1,30 +1,30 @@
 class DoomerBeta < Formula
   desc "Run source-code adversaries against a local repository"
   homepage "https://github.com/doomerlabs/doomer"
-  version "2026.9.24-beta.2"
+  version "2026.9.25-beta.3"
   license "Apache-2.0"
 
   on_macos do
     on_intel do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.24-beta.2/doomer_2026.9.24-beta.2_darwin_amd64.tar.gz"
-      sha256 "4fcd4df66d3cac0b6515aa2a18c130f33609d62852832b7ea64ceb186219fc9b"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.25-beta.3/doomer_2026.9.25-beta.3_darwin_amd64.tar.gz"
+      sha256 "269442ef398245a122c4ec18c205c16e5a534cf677b24fca5c6b7c7a153e26d7"
     end
 
     on_arm do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.24-beta.2/doomer_2026.9.24-beta.2_darwin_arm64.tar.gz"
-      sha256 "1a41d6a50b51da3dc6f57746d3ed5bfaca31a67783dd28645967bd9b4fb26128"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.25-beta.3/doomer_2026.9.25-beta.3_darwin_arm64.tar.gz"
+      sha256 "0f66cd10a2fb7d2dac189598b7805656e3a9918211de2725444898b6a1dd38b7"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.24-beta.2/doomer_2026.9.24-beta.2_linux_amd64.tar.gz"
-      sha256 "c79b9b35f644cd44953677e606fd25ef938cb774f294f091c3979c75bf4f592f"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.25-beta.3/doomer_2026.9.25-beta.3_linux_amd64.tar.gz"
+      sha256 "a252159eb6beebe372eabedfe9b057b64899581a4a80a6efb94e15cc1e53d7fb"
     end
 
     on_arm do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.24-beta.2/doomer_2026.9.24-beta.2_linux_arm64.tar.gz"
-      sha256 "998d3b9c375a60596a2b5dd105e2c0644817b9d78f4c9cc6aebf7054198cd834"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.25-beta.3/doomer_2026.9.25-beta.3_linux_arm64.tar.gz"
+      sha256 "9d5246e338e097308ab9f1cf479ff60debd9bf59bc4259a0dcd347597415eae6"
     end
   end
 
