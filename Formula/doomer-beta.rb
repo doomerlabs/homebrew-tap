@@ -1,30 +1,30 @@
 class DoomerBeta < Formula
   desc "Run source-code adversaries against a local repository"
   homepage "https://github.com/doomerlabs/doomer"
-  version "2026.9.25-beta.3"
+  version "2026.9.28-beta.1"
   license "Apache-2.0"
 
   on_macos do
     on_intel do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.25-beta.3/doomer_2026.9.25-beta.3_darwin_amd64.tar.gz"
-      sha256 "269442ef398245a122c4ec18c205c16e5a534cf677b24fca5c6b7c7a153e26d7"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.28-beta.1/doomer_2026.9.28-beta.1_darwin_amd64.tar.gz"
+      sha256 "ed2bd2535317fb64590431e2af643b003acb2130c255cf08699171b84422dcb5"
     end
 
     on_arm do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.25-beta.3/doomer_2026.9.25-beta.3_darwin_arm64.tar.gz"
-      sha256 "0f66cd10a2fb7d2dac189598b7805656e3a9918211de2725444898b6a1dd38b7"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.28-beta.1/doomer_2026.9.28-beta.1_darwin_arm64.tar.gz"
+      sha256 "908dd887f7ec4fd2b6607e207af5cc0512f12a63fca9efeeaa69ce4fd948a072"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.25-beta.3/doomer_2026.9.25-beta.3_linux_amd64.tar.gz"
-      sha256 "a252159eb6beebe372eabedfe9b057b64899581a4a80a6efb94e15cc1e53d7fb"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.28-beta.1/doomer_2026.9.28-beta.1_linux_amd64.tar.gz"
+      sha256 "63a5e04c4fda6df959751b20052b7c3536c353d336a2dc5a3bbd652fbcc7ab25"
     end
 
     on_arm do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.25-beta.3/doomer_2026.9.25-beta.3_linux_arm64.tar.gz"
-      sha256 "9d5246e338e097308ab9f1cf479ff60debd9bf59bc4259a0dcd347597415eae6"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.9.28-beta.1/doomer_2026.9.28-beta.1_linux_arm64.tar.gz"
+      sha256 "654beadd0d62afaf71fdf26ba857f72c7be222cbba5121b65257a7035dffcbc8"
     end
   end
 
