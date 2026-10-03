@@ -64,22 +64,73 @@ if __name__ == '__main__':
     unittest.main()
 
 class ReleaseBranchTests(unittest.TestCase):
-    def test_already_merged_branch_keeps_original_formula_diff(self):
+    def run_verifier(self, *, merged=False, extra=False, symlink=False):
+        import os
+        import shutil
         import subprocess
-        with tempfile.TemporaryDirectory() as directory:
-            repo = Path(directory)
-            def git(*args):
-                return subprocess.check_output(['git', '-C', str(repo), *args], text=True).strip()
-            git('init', '-q', '-b', 'main')
-            git('config', 'user.name', 'Release test')
-            git('config', 'user.email', 'release@example.test')
-            (repo / 'Formula').mkdir()
-            (repo / 'Formula/doomer.rb').write_text('old formula')
-            git('add', '.'); git('commit', '-qm', 'base')
-            base = git('rev-parse', 'HEAD')
-            (repo / 'Formula/doomer.rb').write_text('new formula')
-            git('commit', '-qam', 'formula')
-            release = git('rev-parse', 'HEAD')
-            self.assertEqual(git('merge-base', 'HEAD', release), release)
-            self.assertEqual(git('rev-parse', release + '^'), base)
-            self.assertEqual(git('diff', '--name-only', base, release), 'Formula/doomer.rb')
+        fixture = FormulaVerificationTests()
+        fixture.setUp()
+        self.addCleanup(fixture.doCleanups)
+        root = fixture.root
+        checkout = root / 'checkout'
+        checkout.mkdir()
+        def git(*args):
+            return subprocess.check_output(['git', '-C', str(checkout), *args], text=True, stderr=subprocess.DEVNULL).strip()
+        git('init', '-q', '-b', 'main')
+        git('config', 'user.name', 'Release test')
+        git('config', 'user.email', 'release@example.test')
+        (checkout / 'Formula').mkdir()
+        (checkout / 'Formula/doomer.rb').write_text('  version "2026.10.0"\n')
+        (checkout / 'scripts').mkdir()
+        for name in ('verify-release-formula.sh', 'verify_formula.py'):
+            shutil.copyfile(Path(__file__).parent / name, checkout / 'scripts' / name)
+        git('add', '.'); git('commit', '-qm', 'base')
+        git('switch', '-qc', 'release/doomer-2026.10.1')
+        if symlink:
+            (checkout / 'Formula/doomer.rb').unlink()
+            (checkout / 'Formula/doomer.rb').symlink_to('../scripts/verify_formula.py')
+        else:
+            (checkout / 'Formula/doomer.rb').write_bytes(fixture.formula)
+        if extra:
+            (checkout / 'unexpected.txt').write_text('not a formula')
+        git('add', '.'); git('commit', '-qm', 'formula')
+        release = git('rev-parse', 'HEAD')
+        subprocess.check_call(['git', 'clone', '-q', '--bare', str(checkout), str(root / 'remote.git')])
+        git('remote', 'add', 'origin', str(root / 'remote.git'))
+        git('switch', '-q', 'main')
+        if merged:
+            git('merge', '--ff-only', '-q', 'release/doomer-2026.10.1')
+        fakebin = root / 'fakebin'
+        fakebin.mkdir()
+        curl = fakebin / 'curl'
+        curl.write_text("""#!/usr/bin/env python3
+import os, shutil, sys
+from pathlib import Path
+args = sys.argv[1:]
+url = next(arg for arg in args if arg.startswith('https://'))
+shutil.copyfile(Path(os.environ['TEST_ASSETS']) / url.rsplit('/', 1)[1], args[args.index('-o') + 1])
+""")
+        curl.chmod(0o755)
+        env = dict(os.environ, RELEASE_BRANCH='release/doomer-2026.10.1', RELEASE_SHA=release,
+                   TEST_ASSETS=str(root), PATH=str(fakebin) + os.pathsep + os.environ['PATH'])
+        return subprocess.run(['bash', 'scripts/verify-release-formula.sh'], cwd=checkout, env=env,
+                              capture_output=True, text=True)
+
+    def test_fresh_release_branch(self):
+        result = self.run_verifier()
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn('Verified formula', result.stdout)
+
+    def test_already_merged_release_retry(self):
+        result = self.run_verifier(merged=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+
+    def test_unrelated_branch_changes_rejected(self):
+        result = self.run_verifier(extra=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('exactly its formula', result.stderr)
+
+    def test_symlinked_formula_rejected(self):
+        result = self.run_verifier(symlink=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('regular file', result.stderr)
