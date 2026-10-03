@@ -11,6 +11,9 @@ formula=doomer.rb
 git fetch origin "$sha"
 [[ "$(git rev-parse FETCH_HEAD)" == "$sha" ]] || { echo 'Release commit changed' >&2; exit 1; }
 base="$(git merge-base HEAD "$sha")"
+# A retried webhook may start after its PR has already merged. In that case,
+# inspect the original formula commit instead of treating its empty diff as invalid.
+if [[ "$base" == "$sha" ]]; then base="$(git rev-parse "$sha^")"; fi
 [[ "$(git diff --name-only "$base" "$sha")" == "Formula/$formula" ]] || { echo 'Release branch must change exactly its formula' >&2; exit 1; }
 [[ "$(git ls-tree "$sha" "Formula/$formula" | awk '{print $1}')" == 100644 ]] || { echo 'Formula must be a regular file' >&2; exit 1; }
 scratch="$(mktemp -d)"

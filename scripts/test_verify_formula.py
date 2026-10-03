@@ -62,3 +62,24 @@ class FormulaVerificationTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+class ReleaseBranchTests(unittest.TestCase):
+    def test_already_merged_branch_keeps_original_formula_diff(self):
+        import subprocess
+        with tempfile.TemporaryDirectory() as directory:
+            repo = Path(directory)
+            def git(*args):
+                return subprocess.check_output(['git', '-C', str(repo), *args], text=True).strip()
+            git('init', '-q', '-b', 'main')
+            git('config', 'user.name', 'Release test')
+            git('config', 'user.email', 'release@example.test')
+            (repo / 'Formula').mkdir()
+            (repo / 'Formula/doomer.rb').write_text('old formula')
+            git('add', '.'); git('commit', '-qm', 'base')
+            base = git('rev-parse', 'HEAD')
+            (repo / 'Formula/doomer.rb').write_text('new formula')
+            git('commit', '-qam', 'formula')
+            release = git('rev-parse', 'HEAD')
+            self.assertEqual(git('merge-base', 'HEAD', release), release)
+            self.assertEqual(git('rev-parse', release + '^'), base)
+            self.assertEqual(git('diff', '--name-only', base, release), 'Formula/doomer.rb')
