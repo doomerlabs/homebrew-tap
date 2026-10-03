@@ -1,0 +1,14 @@
+Formula/doomer.rb
+  h_aa44c3b5b60dec 2,4,9-10,14-15,21-22,26-27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9d811b3783e6212cfc4309a5f7d43c8cfeb65a64",
+  "prompts": {},
+  "humans": {
+    "h_aa44c3b5b60dec": {
+      "author": "Marc Campbell <marc.e.campbell@gmail.com>"
+    }
+  }
+}
