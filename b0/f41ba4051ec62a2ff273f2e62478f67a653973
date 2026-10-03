@@ -1,0 +1,21 @@
+scripts/test_verify_formula.py
+  s_ef80d54fec801e::t_77fae0c4ba8e30 65-85
+scripts/verify-release-formula.sh
+  s_ef80d54fec801e::t_2de01e4d735b21 14-16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b0f41ba4051ec62a2ff273f2e62478f67a653973",
+  "prompts": {},
+  "sessions": {
+    "s_ef80d54fec801e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1034d-bbb6-7bd2-a508-a3e4575be526",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "Marc Campbell <marc.e.campbell@gmail.com>"
+    }
+  }
+}
