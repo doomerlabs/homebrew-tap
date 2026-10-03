@@ -1,0 +1,37 @@
+.depot/workflows/publish-formula.yml
+  s_8c3641f319aafc::t_de9d071f5ae809 37-38
+README.md
+  s_46b764cf153f8a::t_b6c3fa6b7c69fc 18-24
+scripts/publish-release-formula.sh
+  s_8c3641f319aafc::t_319f567376ba14 29-30
+scripts/test-publish-release-formula.sh
+  s_8c3641f319aafc::t_16f61560feadd9 29-41,47,49-53,55,58
+scripts/test_verify_formula.py
+  s_8c3641f319aafc::t_02284c1e50b88d 135-137
+scripts/verify-release-formula.sh
+  s_8c3641f319aafc::t_d745850aaf84c1 22-24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9c314db81962405af05b894a887e9e1552b37004",
+  "prompts": {},
+  "sessions": {
+    "s_46b764cf153f8a": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a10333-3f42-7172-9e21-8fc4a8b6c775",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "Marc Campbell <marc.e.campbell@gmail.com>"
+    },
+    "s_8c3641f319aafc": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a10334-4774-7b90-8710-ace04befe70d",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "Marc Campbell <marc.e.campbell@gmail.com>"
+    }
+  }
+}
