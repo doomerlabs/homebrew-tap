@@ -26,6 +26,8 @@ for attempt in $(seq 1 40); do
   if [[ "$review" == APPROVED ]]; then
     # GitHub still enforces required checks and branch protection. The reviewer
     # may also merge first, so an ordinary merge failure is retried safely.
+    git fetch origin main:refs/remotes/origin/main
+    VERIFY_CURRENT_REF=refs/remotes/origin/main scripts/verify-release-formula.sh
     gh pr merge "$pr" --repo "$repo" --merge --match-head-commit "$sha" || true
   fi
   if [[ "$attempt" != 40 ]]; then sleep 15; fi

@@ -19,7 +19,9 @@ if [[ "$base" == "$sha" ]]; then base="$(git rev-parse "$sha^")"; fi
 scratch="$(mktemp -d)"
 trap 'rm -rf -- "$scratch"' EXIT
 git show "$sha:Formula/$formula" >"$scratch/proposed.rb"
-git show "HEAD:Formula/$formula" >"$scratch/current.rb"
+current_ref="${VERIFY_CURRENT_REF:-HEAD}"
+[[ "$current_ref" == HEAD || "$current_ref" == refs/remotes/origin/main ]] || { echo 'Invalid current formula ref' >&2; exit 1; }
+git show "$current_ref:Formula/$formula" >"$scratch/current.rb"
 for file in "$formula" checksums.txt release-manifest.json; do
   curl --fail --location --silent --show-error --retry 3 --max-time 120 \
     "https://github.com/doomerlabs/doomer/releases/download/$tag/$file" -o "$scratch/$file"

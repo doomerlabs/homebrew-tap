@@ -34,5 +34,7 @@ jobs:
         env:
           RELEASE_BRANCH: ${{ github.ref_name }}
           RELEASE_SHA: ${{ github.sha }}
+          # Depot issues a Depot Code Access GitHub App token here, not a
+          # GitHub Actions token. Its PR events reach Depot and the reviewer.
           GH_TOKEN: ${{ github.token }}
         run: scripts/publish-release-formula.sh

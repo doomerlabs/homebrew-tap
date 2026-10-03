@@ -60,8 +60,6 @@ class FormulaVerificationTests(unittest.TestCase):
         self.assertLess(version_key('2026.10.1-beta.10'), version_key('2026.10.1'))
 
 
-if __name__ == '__main__':
-    unittest.main()
 
 class ReleaseBranchTests(unittest.TestCase):
     def run_verifier(self, *, merged=False, extra=False, symlink=False):
@@ -134,3 +132,6 @@ shutil.copyfile(Path(os.environ['TEST_ASSETS']) / url.rsplit('/', 1)[1], args[ar
         result = self.run_verifier(symlink=True)
         self.assertNotEqual(result.returncode, 0)
         self.assertIn('regular file', result.stderr)
+
+if __name__ == '__main__':
+    unittest.main()
