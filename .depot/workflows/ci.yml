@@ -1,0 +1,22 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - run: |
+          bash -n scripts/verify-release-formula.sh
+          bash -n scripts/publish-release-formula.sh
+          python3 -m unittest discover -s scripts -p 'test_*.py'
+          scripts/test-publish-release-formula.sh
+          ruby -c Formula/doomer.rb
+          ruby -c Formula/doomer-beta.rb

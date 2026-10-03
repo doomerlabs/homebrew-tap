@@ -1,0 +1,40 @@
+name: publish-formula
+
+on:
+  push:
+    branches: ["release/doomer-*"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tap-formula-publication
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Check out trusted publication tooling
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Verify published formula and release branch
+        env:
+          RELEASE_BRANCH: ${{ github.ref_name }}
+          RELEASE_SHA: ${{ github.sha }}
+        run: scripts/verify-release-formula.sh
+      - name: Open release PR and wait for approved publication
+        env:
+          RELEASE_BRANCH: ${{ github.ref_name }}
+          RELEASE_SHA: ${{ github.sha }}
+          # Depot issues a Depot Code Access GitHub App token here, not a
+          # GitHub Actions token. Its PR events reach Depot and the reviewer.
+          GH_TOKEN: ${{ github.token }}
+        run: scripts/publish-release-formula.sh
