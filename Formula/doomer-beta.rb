@@ -1,30 +1,30 @@
 class DoomerBeta < Formula
   desc "Connect to the Doomer SaaS"
   homepage "https://github.com/doomerlabs/doomer"
-  version "2026.10.30-beta.2"
+  version "2026.10.30-beta.3"
   license "Apache-2.0"
 
   on_macos do
     on_intel do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.10.30-beta.2/doomer_2026.10.30-beta.2_darwin_amd64.tar.gz"
-      sha256 "ca45f05dee5adfb23f5eac63b540bb60be5f5e60dbc8530966b81f4f1475f3b3"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.10.30-beta.3/doomer_2026.10.30-beta.3_darwin_amd64.tar.gz"
+      sha256 "f8260a4eddaa45d71190d98b135093c9557688d5a998416c7ea99fc45a61173c"
     end
 
     on_arm do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.10.30-beta.2/doomer_2026.10.30-beta.2_darwin_arm64.tar.gz"
-      sha256 "aea8b03c831746797901ed57763d39e1caa55dcc14652dcaa9815ed6a69c8125"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.10.30-beta.3/doomer_2026.10.30-beta.3_darwin_arm64.tar.gz"
+      sha256 "430c09459c90a133354ebb30b050c3559385d8ba32dfc722f964f5508abdd2e6"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.10.30-beta.2/doomer_2026.10.30-beta.2_linux_amd64.tar.gz"
-      sha256 "a7cdd8db91b91673dba0b253fec65741dbdfb141fcbd03fb76892ef9934cbee6"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.10.30-beta.3/doomer_2026.10.30-beta.3_linux_amd64.tar.gz"
+      sha256 "920a4cee53bf12beaf8d4bafdabf4df66a67388ae3017a40bc91d738b1d66103"
     end
 
     on_arm do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.10.30-beta.2/doomer_2026.10.30-beta.2_linux_arm64.tar.gz"
-      sha256 "1634a742ccd572ddb03aa5959dc3ed07471571e1fb3417c655a7081a7032bcf6"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.10.30-beta.3/doomer_2026.10.30-beta.3_linux_arm64.tar.gz"
+      sha256 "563f99946c81e02ec10a079ce28ca0012368f9024da6431e6f6ffb5efa5c42e5"
     end
   end
 
