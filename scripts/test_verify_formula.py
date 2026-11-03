@@ -55,6 +55,10 @@ class FormulaVerificationTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "downgrade"):
             self.check()
 
+    def test_daily_sequence_order(self):
+        versions = ['2026.11.2', '2026.11.2.1-beta.1', '2026.11.2.1', '2026.11.2.2', '2026.11.2.10', '2026.11.3.1']
+        self.assertEqual(sorted(versions, key=version_key), versions)
+
     def test_prerelease_order(self):
         self.assertLess(version_key('2026.10.1-beta.9'), version_key('2026.10.1-beta.10'))
         self.assertLess(version_key('2026.10.1-beta.10'), version_key('2026.10.1'))

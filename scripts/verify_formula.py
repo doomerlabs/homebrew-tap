@@ -41,7 +41,8 @@ def version_key(version):
     # Natural prerelease order: beta.10 follows beta.9; stable follows prerelease.
     suffix = tuple((0, int(p)) if p.isdigit() else (1, p)
                    for p in prerelease.split(".")) if prerelease else ()
-    return (*map(int, core.split(".")), not bool(prerelease), suffix)
+    parts = tuple(map(int, core.split(".")))
+    return (*parts, *((0,) * (4 - len(parts))), not bool(prerelease), suffix)
 
 
 if __name__ == "__main__":

@@ -4,7 +4,7 @@ branch="${RELEASE_BRANCH:?RELEASE_BRANCH is required}"
 sha="${RELEASE_SHA:?RELEASE_SHA is required}"
 [[ "$branch" == release/doomer-* ]] || { echo 'Unexpected release branch' >&2; exit 1; }
 tag="${branch#release/doomer-}"
-[[ "$tag" =~ ^20[0-9]{2}\.[0-9]{1,2}\.[0-9]{1,2}(-[0-9A-Za-z][0-9A-Za-z.-]*)?$ ]] || { echo 'Invalid release tag' >&2; exit 1; }
+[[ "$tag" =~ ^20[0-9]{2}\.[0-9]{1,2}\.[0-9]{1,2}(\.[1-9][0-9]*)?(-[0-9A-Za-z][0-9A-Za-z.-]*)?$ ]] || { echo 'Invalid release tag' >&2; exit 1; }
 [[ "$sha" =~ ^[0-9a-f]{40}$ ]] || { echo 'Invalid release commit' >&2; exit 1; }
 formula=doomer.rb
 [[ "$tag" != *-* ]] || formula=doomer-beta.rb
