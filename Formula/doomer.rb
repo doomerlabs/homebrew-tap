@@ -1,30 +1,30 @@
 class Doomer < Formula
   desc "Connect to the Doomer SaaS"
   homepage "https://github.com/doomerlabs/doomer"
-  version "2026.11.9.5"
+  version "2026.11.9.6"
   license "Apache-2.0"
 
   on_macos do
     on_intel do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.11.9.5/doomer_2026.11.9.5_darwin_amd64.tar.gz"
-      sha256 "fb4954914689b3184ae7bd14e9e5ae95a7870b6fd199f76363f2c0b86a8aea41"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.11.9.6/doomer_2026.11.9.6_darwin_amd64.tar.gz"
+      sha256 "55bfdebdeab00bfb6ee5fc4916cf4b86b37b6e08cc5d677efd42a6cd7ebea562"
     end
 
     on_arm do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.11.9.5/doomer_2026.11.9.5_darwin_arm64.tar.gz"
-      sha256 "39045fafd55cb82271f92c62cf4eedebe0780d7f71852bd2e230e102f1e13a89"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.11.9.6/doomer_2026.11.9.6_darwin_arm64.tar.gz"
+      sha256 "15c4035f4638bc11fb8cb341e81e30963ffc0cf68dd668f8156ab7bf2e2119dd"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.11.9.5/doomer_2026.11.9.5_linux_amd64.tar.gz"
-      sha256 "938ce525cc185f3c52ca3152ba87317b5374e911fa2366d031945b4b747e4f5f"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.11.9.6/doomer_2026.11.9.6_linux_amd64.tar.gz"
+      sha256 "fc88cc219ab02819cdd1833589f00c1c6e8f25a9cd3ebd217f2fa3128397a207"
     end
 
     on_arm do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.11.9.5/doomer_2026.11.9.5_linux_arm64.tar.gz"
-      sha256 "a88d5b31f44eb1ee8e1efa54d276c0dea296e5ecdd5e07d5fab151129f9da27e"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.11.9.6/doomer_2026.11.9.6_linux_arm64.tar.gz"
+      sha256 "cd7352b04a52182fa8cb57836b0b1cc649de900f1b9d50526e52170d58cdc0f1"
     end
   end
 
