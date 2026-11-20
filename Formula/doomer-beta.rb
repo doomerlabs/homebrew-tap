@@ -1,30 +1,30 @@
 class DoomerBeta < Formula
   desc "Connect to the Doomer SaaS"
   homepage "https://github.com/doomerlabs/doomer"
-  version "2026.11.20.1-beta.2"
+  version "2026.11.20.1-beta.3"
   license "Apache-2.0"
 
   on_macos do
     on_intel do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.11.20.1-beta.2/doomer_2026.11.20.1-beta.2_darwin_amd64.tar.gz"
-      sha256 "f83c5cbcdca2f2ec618e6d880d51247cd7bd86d7f6631b90eec11b1ff58179eb"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.11.20.1-beta.3/doomer_2026.11.20.1-beta.3_darwin_amd64.tar.gz"
+      sha256 "2820d65c6d9ed3a4aff31f5906d73ad2e7f6bece6932a17a88ec217d5cba4e88"
     end
 
     on_arm do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.11.20.1-beta.2/doomer_2026.11.20.1-beta.2_darwin_arm64.tar.gz"
-      sha256 "b969fd3376d6cd588560e16684b1757f3a85c5ba45c5446c9032a06b2ac086c5"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.11.20.1-beta.3/doomer_2026.11.20.1-beta.3_darwin_arm64.tar.gz"
+      sha256 "f897ad5eb036b84c73a26ec6aa20de9f9deca9dc67a663f8626de8bc01be65f0"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.11.20.1-beta.2/doomer_2026.11.20.1-beta.2_linux_amd64.tar.gz"
-      sha256 "c3b31821042b85af477d10ad2cc750ec2c877937b56d0d1758de65c85b191bd5"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.11.20.1-beta.3/doomer_2026.11.20.1-beta.3_linux_amd64.tar.gz"
+      sha256 "09c098743af81a7505e1e0e62b86308132c65180ef3d0225c878d3087690b54d"
     end
 
     on_arm do
-      url "https://github.com/doomerlabs/doomer/releases/download/2026.11.20.1-beta.2/doomer_2026.11.20.1-beta.2_linux_arm64.tar.gz"
-      sha256 "e9139d4224f7b0b441a22cfc3458bee37cc17019cfbf4bbd84239e1d6c8963e6"
+      url "https://github.com/doomerlabs/doomer/releases/download/2026.11.20.1-beta.3/doomer_2026.11.20.1-beta.3_linux_arm64.tar.gz"
+      sha256 "feec77a13d962b76885fd07887a5d3b0c905f584a81d82b32c0b6d78a890be8f"
     end
   end
 
